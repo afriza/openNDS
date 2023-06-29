@@ -1021,6 +1021,15 @@ dhcp_check() {
 		fi
 	done
 
+	if [ -z "$dhcprecord" ]; then
+		# Tidak harus ada di DHCP leases.
+		# Jika mBox di-reboot sedangkan clients masih tersambung WiFi, maka
+		# clients tidak ada di daftar DHCP leases.
+		interface=$(uci get opennds.@opennds[0].gatewayinterface)
+		interface=${interface:-br-lan}
+		dhcprecord=$(ip -4 neigh show dev "$interface" | grep -w "$iptocheck" | grep -oE 'lladdr [0-9a-f:]+' | tail -1 | awk '{printf "%s", $2}')
+	fi
+
 	# If leases file has been moved elsewhere, report as an error
 	if [ "$dbfile" = "no" ]; then
 		syslogmessage="Cannot find dhcp database."
