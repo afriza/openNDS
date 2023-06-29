@@ -1,5 +1,5 @@
 <?php
-/* (c) Blue Wave Projects and Services 2015-2022. This software is released under the GNU GPL license.
+/* (c) Blue Wave Projects and Services 2015-2023. This software is released under the GNU GPL license.
 
  This is a FAS script providing an example of remote Forward Authentication for openNDS (NDS) on an http web server supporting PHP.
 
@@ -453,9 +453,9 @@ function footer() {
 		<hr>
 		<div style=\"font-size:0.5em;\">
 			<img style=\"height:60px; width:60px; float:left;\" src=\"$imagepath\" alt=\"Splash Page: For access to the Internet.\">
-			&copy; The openNDS Project 2015 - $year<br>
+			&copy; The openNDS Project 2015 - $year<br><br>
 			Portal Version: $version
-			<br><br>
+			<br><br><br><br>
 		</div>
 		</div>
 		</div>

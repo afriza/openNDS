@@ -1,6 +1,6 @@
 #!/bin/sh
 # Copyright (C) The openNDS Contributors 2004-2022
-# Copyright (C) BlueWave Projects and Services 2015-2022
+# Copyright (C) BlueWave Projects and Services 2015-2023
 # This software is released under the GNU GPL license.
 
 ###############################################################
@@ -31,6 +31,9 @@ uci commit uhttpd
 
 # Disable themespec
 uci set opennds.@opennds[0].login_option_enabled='0'
+
+# Enable FAS level
+uci set opennds.@opennds[0].fas_secure_enabled='2'
 
 # Enable fas on port 2080
 uci set opennds.@opennds[0].fasport='2080'
